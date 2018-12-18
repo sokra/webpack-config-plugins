@@ -123,7 +123,7 @@ describe('JsConfigWebpackPlugin inside context', () => {
 		});
 
 		const ruleToTest = instance.options.module.rules[0];
-		const ruleOptions = ruleToTest.use[1].options;
+		const ruleOptions = ruleToTest.use[0].options;
 
 		expect(ruleOptions.extends).toEqual(path.resolve(babelConfigFileContext, babelConfigFileName));
 		done();
@@ -158,7 +158,7 @@ describe('JsConfigWebpackPlugin inside context', () => {
 		});
 
 		const ruleToTest = instance.options.module.rules[0];
-		const ruleOptions = ruleToTest.use[1].options;
+		const ruleOptions = ruleToTest.use[0].options;
 
 		expect(path.resolve(webpackContext, babelConfigFilePath)).toEqual(ruleOptions.extends);
 		done();
@@ -191,7 +191,7 @@ describe('JsConfigWebpackPlugin inside context', () => {
 			plugins: [new JsConfigWebpackPlugin({ babelConfigFile: babelConfigFilePath })],
 		});
 
-		const ruleToTest = compiler.options.module.rules[0].use[1];
+		const ruleToTest = compiler.options.module.rules[0].use[0];
 		const ruleOptions = ruleToTest.options;
 
 		// should fail because .babelrc file searches a not installed plugin
@@ -300,7 +300,7 @@ describe('JsConfigWebpackPlugin inside context', () => {
 			plugins: [new JsConfigWebpackPlugin()],
 		});
 
-		const ruleToTest = compiler.options.module.rules[0].use[1];
+		const ruleToTest = compiler.options.module.rules[0].use[0];
 		// lookup bubbles up the directory tree
 		// means that the .bablerc file should be located one level up the context of webpack
 		const webpackContext = path.resolve(__dirname, 'fixtures/babel');
