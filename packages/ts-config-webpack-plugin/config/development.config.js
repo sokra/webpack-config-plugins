@@ -23,24 +23,6 @@ exports = module.exports = (options) => ({
 				test: /\.(tsx?|d.ts)$/,
 				use: [
 					{
-						// enable file based cache
-						loader: require.resolve('cache-loader'),
-						options: {
-							cacheDirectory: path.resolve(
-								path.dirname(require.resolve('cache-loader')),
-								'../.cache-loader'
-							),
-						},
-					},
-					{
-						// run compilation threaded
-						loader: require.resolve('thread-loader'),
-						options: {
-							// there should be 1 cpu for the fork-ts-checker-webpack-plugin
-							workers: tsLoaderWorkers,
-						},
-					},
-					{
 						// main typescript compilation loader
 						loader: require.resolve('ts-loader'),
 						options: {
