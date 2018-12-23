@@ -1,5 +1,5 @@
 {
-  "name": "webpack-performance-current",
+  "name": "webpack-performance-latest",
   "private": true,
   "description": "Test the performance",
   "engines": {
@@ -18,7 +18,7 @@
     "scss-config-webpack-plugin": "file:../../packages/scss-config-webpack-plugin.tgz",
     "ts-config-webpack-plugin": "file:../../packages/ts-config-webpack-plugin.tgz",
     "typescript": "3.2.2",
-    "webpack": "4.27.1",
+    "webpack": "5.0.0-alpha.1",
     "webpack-cli": "3.1.2",
     "webpack-dev-server": "3.1.10"
   },
