@@ -81,6 +81,36 @@ jobs:
         - node measure-dev-server.js
 
     - stage: performance
+      name: "webpack-dev-server typescript - components x 30"
+      env:
+        - transpiler="typescript"
+        - moduleMultiplier="30"
+      sudo: false
+      node_js:
+        - '10'
+      install:
+        - travis_retry npm install
+        - cd performance
+        - travis_retry npm install
+      script:
+        - node measure-dev-server.js
+
+    - stage: performance
+      name: "webpack-dev-server babel - components x 30"
+      env:
+        - transpiler="babel"
+        - moduleMultiplier="30"
+      sudo: false
+      node_js:
+        - '10'
+      install:
+        - travis_retry npm install
+        - cd performance
+        - travis_retry npm install
+      script:
+        - node measure-dev-server.js
+
+    - stage: performance
       name: "webpack-cli typescript"
       env:
         - transpiler="typescript"
