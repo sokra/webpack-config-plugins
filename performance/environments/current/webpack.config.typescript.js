@@ -5,9 +5,11 @@ const TsConfigWebpackPlugin = require('ts-config-webpack-plugin');
 module.exports = {
 	context: __dirname,
 	resolve: {
+		cache: false,
 		unsafeCache: true
 	},
 	resolveLoader: {
+		cache: false,
 		unsafeCache: true
 	},
 	plugins: [
